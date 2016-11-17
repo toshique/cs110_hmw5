@@ -2,9 +2,10 @@
 <title>Bouncing Boxes</title>
 </head>
 <body>
-
-<canvas id="canvas" width="500" height="300"></canvas>
-
+<img src="http://islandchic77.com/wp-content/uploads/2014/12/Merry-Christmas-Images-4.jpg" height="442" width="1342">
+<div style="text-align: center; margin-top: 150px">
+<canvas id="canvas" width="500" height="300" style="background-color: #27570C" ></canvas>
+</div>
 
 
 <script>
@@ -16,9 +17,8 @@ let context = canvas.getContext("2d");
 
 
 
-const NUM_POINTS = 5;
+const NUM_POINTS = 1000;
 
-// create points
 
 let points = [];
 
@@ -30,13 +30,13 @@ for(let i = 0; i < NUM_POINTS; i++) {
 
     y: Math.random() * canvas.height-10,
 
-    width: 40,
+    width: Math.random() * 10,
 
-    height: 40,
+    height: Math.random() * 10,
 
     xDelta: 1,
     yDelta: 1,
-    color: 'red'
+    color: '#DC2016'
 
   });
 
