@@ -1,0 +1,79 @@
+<head>
+<title>Bouncing Boxes</title>
+</head>
+<body>
+
+<canvas id="canvas" width="500" height="300"></canvas>
+
+
+
+<script>
+
+  
+
+let canvas = document.getElementById("canvas");
+let context = canvas.getContext("2d");
+
+
+
+const NUM_POINTS = 5;
+
+// create points
+
+let points = [];
+
+for(let i = 0; i < NUM_POINTS; i++) {
+
+  points.push({
+
+    x: Math.random() * canvas.width-10,
+
+    y: Math.random() * canvas.height-10,
+
+    width: 40,
+
+    height: 40,
+
+    xDelta: 1,
+    yDelta: 1,
+    color: 'red'
+
+  });
+
+}
+
+
+
+let draw = function() {
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	points.forEach(function(point){
+		context.fillStyle=point.color;
+		context.fillRect(point.x, point.y, point.width, point.height);
+		if((point.x+point.width) >= canvas.width || point.x<0){
+			point.xDelta=point.xDelta*(-1);
+		};
+		if((point.y+point.height) >= canvas.height || point.y<0){
+			point.yDelta=point.yDelta*(-1);
+		};
+		point.x=point.x+point.xDelta;
+		point.y=point.y+point.yDelta;
+	});
+	};
+  
+
+
+let animate = function() {
+
+    draw();
+
+    window.setTimeout(animate, 10);
+
+};
+
+animate();
+
+
+
+</script>
+</body>
